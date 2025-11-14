@@ -38,7 +38,7 @@ type HTTPGateway struct {
 }
 
 func (h *HTTPGateway) ServeHTTP(req *http.Request) ([]byte, int, error) {
-	p := filepath.FromSlash(path.Clean("/" + strings.Trim(req.URL.Path, "/")))
+	p := filepath.FromSlash(filepath.Clean("/" + strings.Trim(req.URL.Path, "/")))
 
 	typeURL := ""
 	switch p {
